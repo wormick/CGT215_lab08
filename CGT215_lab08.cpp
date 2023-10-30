@@ -40,11 +40,11 @@ int main()
     RenderWindow window(VideoMode(800, 600), "Balloon Buster");
     World world(Vector2f(0, 0));
     int score(0);
-    int arrows(1);
+    int arrows(5);
 
     SoundBuffer popBuffer;
-    if (!popBuffer.loadFromFile("balloonpop.ogg")) {
-        cout << "coul not load balloonpop.ogg" << endl;
+    if (!popBuffer.loadFromFile("gunshot.ogg")) {
+        cout << "coul not load gunshot.ogg" << endl;
         exit(5);
     }
     Sound popSound;
