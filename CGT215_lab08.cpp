@@ -159,11 +159,12 @@ int main()
             Text scoreText;
             scoreText.setString(to_string(score));
             scoreText.setFont(fnt);
+            scoreText.setPosition(10, 565);
             window.draw(scoreText);
             Text arrowCountText;
             arrowCountText.setString(to_string(arrows));
             arrowCountText.setFont(fnt);
-            arrowCountText.setPosition(Vector2f(790 - GetTextSize(arrowCountText).x, 0));
+            arrowCountText.setPosition(770, 565);
             window.draw(arrowCountText);
             //world.VisualizeAllBounds(window);
 
