@@ -125,6 +125,7 @@ int main()
         cout << "Could not load font." << endl;
         exit(3);
     }
+
     Clock clock;
     Time lastTime(clock.getElapsedTime());
     Time currentTime(lastTime);
@@ -133,10 +134,12 @@ int main()
         currentTime = clock.getElapsedTime();
         Time deltaTime = currentTime - lastTime;
         long deltaMS = deltaTime.asMilliseconds();
+
         if (deltaMS > 9) {
             lastTime = currentTime;
             world.UpdatePhysics(deltaMS);
             MoveCrossbow(crossBow, deltaMS);
+
             if (Keyboard::isKeyPressed(Keyboard::Space) &&
                 !drawingArrow) {
                 drawingArrow = true;
@@ -144,7 +147,6 @@ int main()
                 arrow.setCenter(crossBow.getCenter());
                 arrow.setVelocity(Vector2f(0, -1));
                 world.AddPhysicsBody(arrow);
-
             }
 
             window.clear();
@@ -155,12 +157,14 @@ int main()
             for (PhysicsShape& balloon : balloons) {
                 window.draw((PhysicsSprite&)balloon);
             }
+
             window.draw(crossBow);
             Text scoreText;
             scoreText.setString(to_string(score));
             scoreText.setFont(fnt);
             scoreText.setPosition(10, 565);
             window.draw(scoreText);
+
             Text arrowCountText;
             arrowCountText.setString(to_string(arrows));
             arrowCountText.setFont(fnt);
